@@ -31,6 +31,9 @@ class SplashScreen extends StatelessWidget {
                 width: 220,
               ),
             ),
+            const SizedBox(
+              height: 16,
+            ),
             const Text(
               'Memeworld',
               style: TextStyle(

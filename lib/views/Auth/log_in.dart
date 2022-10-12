@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:memeworld/const/app_colors.dart';
+import 'package:memeworld/views/Auth/sign_up.dart';
 import 'package:memeworld/widgets/button.dart';
 import 'package:memeworld/widgets/call_to_action.dart';
 import 'package:memeworld/widgets/divider.dart';
@@ -72,7 +74,16 @@ class LogInScreen extends StatelessWidget {
                 ],
               ),
             ),
-            CtaButton(color: AppColors.appColors, text: 'LOG IN'),
+            CtaButton(
+              color: AppColors.appColors,
+              text: 'LOG IN',
+              callback: () {
+                Navigator.of(context)
+                    .push(CupertinoPageRoute(builder: (context) {
+                  return const SignUpScreen();
+                }));
+              },
+            ),
             const SizedBox(
               height: 30,
             ),
