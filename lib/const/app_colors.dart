@@ -14,7 +14,7 @@ class AppColors {
   static final Color colorTheme2 = Color(0xFFC1D4D9);
   static final Color colorTheme3 = Color(0xFF76A382);
   static final Color newColor = Color(0xFFFE9EC4);
-  static final Color pickColor = Color(0xFFFE9EC4);
+  static final Color pickColor = Color(0xFFFC0B7B);
   static final Color pick2Color = Color(0xFFFE53BB);
   static final Color blueColor = Color(0xFF08F7FE);
   static final Color blue2Color = Color(0xFF09FBD3);

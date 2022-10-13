@@ -37,15 +37,16 @@ class _SignUpScreenState extends State<SignUpScreen>
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
           ),
           bottom: TabBar(
-              labelColor: Colors.black,
-              controller: _controller,
-              indicatorColor: AppColors.appColors,
-              // indicator: UnderlineTabIndicator(),
-              // isScrollable: true,
-              tabs: const [
-                Tab(text: 'Phone'),
-                Tab(text: 'Email'),
-              ]),
+            labelColor: Colors.black,
+            controller: _controller,
+            indicatorWeight: 3,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorColor: AppColors.appColors,
+            tabs: const [
+              Tab(text: 'Phone'),
+              Tab(text: 'Email'),
+            ],
+          ),
         ),
         body: SizedBox(
           height: MediaQuery.of(context).size.height * 0.8,

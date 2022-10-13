@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:memeworld/views/Home/pages/home.dart';
+import 'package:memeworld/views/Home/pages/notifications.dart';
+import 'package:memeworld/views/Home/pages/profile.dart';
+import 'package:memeworld/views/Home/pages/search.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({super.key});
@@ -9,10 +14,18 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
+  int index = 0;
+  List pages = const [
+    HomePage(),
+    SearchPage(),
+    NotificationsPage(),
+    ProfileScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      body: pages[index],
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
         height: 75,
@@ -32,31 +45,126 @@ class _MainHomeState extends State<MainHome> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    index = 0;
+                  });
+                },
                 icon: const Icon(
                   CupertinoIcons.home,
                   size: 25,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    index = 1;
+                  });
+                },
                 icon: const Icon(
-                  CupertinoIcons.search,
+                  Feather.search,
                   size: 25,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showCupertinoModalPopup(
+                      context: context,
+                      builder: (context) {
+                        return CupertinoActionSheet(
+                          title: const Text(
+                            'Post to Memeworld',
+                            style: TextStyle(),
+                          ),
+                          actions: [
+                            CupertinoActionSheetAction(
+                              onPressed: () {},
+                              child: Row(
+                                children: const [
+                                  Icon(Icons.gif_box_outlined),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    'GIF',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            CupertinoActionSheetAction(
+                              onPressed: () {},
+                              child: Row(
+                                children: const [
+                                  Icon(Icons.video_file),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    'VIDEO',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            CupertinoActionSheetAction(
+                              onPressed: () {},
+                              child: Row(
+                                children: const [
+                                  Icon(Icons.image),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    'IMAGE',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                          cancelButton: CupertinoActionSheetAction(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text(
+                                'Cancel',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              )),
+                        );
+                      });
+                },
                 icon: const Icon(
                   CupertinoIcons.add_circled,
                   size: 35,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    index = 2;
+                  });
+                },
                 icon: const Icon(
                   CupertinoIcons.bell,
                   size: 25,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    index = 3;
+                  });
+                },
                 icon: const Icon(
                   CupertinoIcons.person,
                   size: 25,

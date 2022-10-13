@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:memeworld/const/app_colors.dart';
+import 'package:memeworld/views/Auth/forgot_password.dart';
 import 'package:memeworld/views/Auth/sign_up.dart';
+import 'package:memeworld/views/onboarding/onboarding_screen.dart';
 import 'package:memeworld/widgets/button.dart';
 import 'package:memeworld/widgets/call_to_action.dart';
 import 'package:memeworld/widgets/divider.dart';
@@ -18,7 +20,10 @@ class LogInScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(context)
+                  .pushReplacement(CupertinoPageRoute(builder: (context) {
+                return const OnBoarding();
+              }));
             },
             icon: const Icon(Icons.close)),
       ),
@@ -66,7 +71,12 @@ class LogInScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            CupertinoPageRoute(builder: (context) {
+                          return ForgotPassword();
+                        }));
+                      },
                       child: Text(
                         'Forgot password',
                         style: TextStyle(color: AppColors.appColors),
