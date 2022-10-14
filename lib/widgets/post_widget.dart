@@ -1,10 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:memeworld/views/Home/pages/account/comment_page.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'action_widget.dart';
 
 class PostWidget extends StatelessWidget {
-  const PostWidget({super.key});
+  final String userName;
+  final String timePosted;
+  final String imageContent;
+  final String likes;
+  final String comments;
+  final String shareCount;
+  const PostWidget(
+      {super.key,
+      required this.userName,
+      required this.timePosted,
+      required this.imageContent,
+      required this.likes,
+      required this.comments,
+      required this.shareCount});
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +46,9 @@ class PostWidget extends StatelessWidget {
               leading: const CircleAvatar(
                 backgroundImage: AssetImage('assets/user.jpeg'),
               ),
-              title: const Text(
-                'justadreamer',
-                style: TextStyle(
+              title: Text(
+                userName,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 13,
                 ),
@@ -42,12 +57,16 @@ class PostWidget extends StatelessWidget {
                 width: 90,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Text('20 min'),
-                    SizedBox(
+                  children: [
+                    Text(timePosted),
+                    const SizedBox(
                       width: 10,
                     ),
-                    Icon(Icons.more_horiz)
+                    GestureDetector(
+                        onTap: () {
+                          seeMore(context);
+                        },
+                        child: const Icon(Icons.more_horiz))
                   ],
                 ),
               ),
@@ -57,10 +76,10 @@ class PostWidget extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 height: 250,
-                decoration: const BoxDecoration(
-                    color: Colors.green,
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(.1),
                     image: DecorationImage(
-                      image: AssetImage('assets/memer.jpeg'),
+                      image: AssetImage(imageContent),
                       fit: BoxFit.cover,
                     )),
               ),
@@ -73,30 +92,41 @@ class PostWidget extends StatelessWidget {
               child: Row(
                 children: [
                   Row(
-                    children: const [
+                    children: [
                       ActionWidget(
-                        icon: Icon(Icons.favorite_border_outlined),
-                        text: '247',
+                        icon: const Icon(Icons.favorite_border_outlined),
+                        text: likes,
+                        callback: () {},
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       ActionWidget(
-                        icon: Icon(
+                        icon: const Icon(
                           CupertinoIcons.chat_bubble,
                           size: 22,
                         ),
-                        text: '57',
+                        text: comments,
+                        callback: () {
+                          Navigator.of(context)
+                              .push(CupertinoPageRoute(builder: (context) {
+                            return const CommentsPage();
+                          }));
+                        },
                       ),
                     ],
                   ),
                   const Spacer(),
-                  const ActionWidget(
-                      text: '69',
-                      icon: Icon(
-                        CupertinoIcons.share_up,
-                        size: 22,
-                      )),
+                  ActionWidget(
+                    text: shareCount,
+                    icon: const Icon(
+                      CupertinoIcons.share_up,
+                      size: 22,
+                    ),
+                    callback: () {
+                      Share.share('I love eating');
+                    },
+                  ),
                   const SizedBox(
                     width: 5,
                   ),
@@ -107,5 +137,100 @@ class PostWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future seeMore(BuildContext context) {
+    return showCupertinoModalPopup(
+        context: context,
+        builder: (context) {
+          return CupertinoActionSheet(
+            cancelButton: CupertinoActionSheetAction(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                )),
+            actions: [
+              CupertinoActionSheetAction(
+                onPressed: () {},
+                child: Row(
+                  children: const [
+                    Icon(Icons.ads_click_outlined),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Follow @nyams',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              CupertinoActionSheetAction(
+                onPressed: () {},
+                child: Row(
+                  children: const [
+                    Icon(Icons.volume_mute),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Mute @nyams',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              CupertinoActionSheetAction(
+                onPressed: () {},
+                child: Row(
+                  children: const [
+                    Icon(Icons.block),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Block @nyams',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              CupertinoActionSheetAction(
+                onPressed: () {},
+                child: Row(
+                  children: const [
+                    Icon(Icons.flag),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Report post',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        });
   }
 }

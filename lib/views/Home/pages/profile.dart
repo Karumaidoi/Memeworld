@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:memeworld/const/app_colors.dart';
 import 'package:memeworld/widgets/call_to_action.dart';
 
@@ -13,14 +14,17 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'My Profile',
-          style: TextStyle(fontSize: 19),
+          style: TextStyle(fontSize: 18),
         ),
         centerTitle: false,
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(CupertinoIcons.settings),
+            icon: const Icon(
+              Feather.settings,
+              size: 22,
+            ),
           )
         ],
       ),

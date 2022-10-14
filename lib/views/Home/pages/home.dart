@@ -1,13 +1,12 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:memeworld/widgets/action_widget.dart';
+import 'package:memeworld/data/users.dart';
 import 'package:memeworld/widgets/avatar_widget.dart';
 import 'package:memeworld/widgets/follow_widget.dart';
 import 'package:memeworld/widgets/post_widget.dart';
 
 import '../../../const/app_colors.dart';
+import 'story_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,24 +43,56 @@ class _HomePageState extends State<HomePage>
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: const [
-                    MyStoryWidget(),
+                  children: [
+                    const MyStoryWidget(),
                     AvatarWidget(
                       image: 'assets/memeworld.png',
                       text: 'Nyamiaka',
+                      user: users[0],
+                      callback: () {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            builder: (context) => StoryPage(user: users[0]),
+                          ),
+                        );
+                      },
                     ),
                     AvatarWidget(
                       image: 'assets/memeworld.png',
                       text: 'Tesla',
+                      user: users[1],
+                      callback: () {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            builder: (context) => StoryPage(user: users[1]),
+                          ),
+                        );
+                      },
                     ),
                     AvatarWidget(
                       image: 'assets/user.jpeg',
                       text: 'Alex',
+                      user: users[2],
+                      callback: () {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            builder: (context) => StoryPage(user: users[2]),
+                          ),
+                        );
+                      },
                     ),
                     AvatarWidget(
                       image: 'assets/memeworld.png',
                       text: 'Emma',
-                    )
+                      user: users[3],
+                      callback: () {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            builder: (context) => StoryPage(user: users[3]),
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               )),
@@ -88,7 +119,7 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           Flexible(
-              flex: 10,
+              flex: 8,
               child: TabBarView(controller: _controller, children: [
                 Column(
                   children: [
@@ -131,7 +162,24 @@ class _HomePageState extends State<HomePage>
                 ),
                 ListView(
                   physics: const BouncingScrollPhysics(),
-                  children: const [PostWidget(), PostWidget()],
+                  children: const [
+                    PostWidget(
+                      userName: 'justadreamer',
+                      timePosted: '20 mins',
+                      imageContent: 'assets/meme.jpeg',
+                      likes: '247',
+                      shareCount: '69',
+                      comments: '57',
+                    ),
+                    PostWidget(
+                      userName: 'alexythedev',
+                      timePosted: '1 hr',
+                      imageContent: 'assets/memer.jpeg',
+                      likes: '27',
+                      shareCount: '1',
+                      comments: '8',
+                    ),
+                  ],
                 ),
               ]))
         ],

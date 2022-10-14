@@ -1,35 +1,46 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:memeworld/const/app_colors.dart';
+import 'package:memeworld/model/user.dart';
 
 class AvatarWidget extends StatelessWidget {
   final String image;
   final String text;
-  const AvatarWidget({super.key, required this.image, required this.text});
+  final User user;
+  final VoidCallback callback;
+  const AvatarWidget(
+      {super.key,
+      required this.image,
+      required this.text,
+      required this.user,
+      required this.callback});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            backgroundColor: AppColors.pickColor,
-            radius: 30,
-            child: CircleAvatar(
-              radius: 27,
-              backgroundImage: AssetImage(image),
+    return GestureDetector(
+      onTap: callback,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.transparent,
+              radius: 30,
+              child: CircleAvatar(
+                radius: 27,
+                backgroundImage: AssetImage(image),
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            text,
-            style: const TextStyle(fontSize: 12),
-          ),
-        ],
+            const SizedBox(
+              height: 5,
+            ),
+            Text(
+              text,
+              style: const TextStyle(fontSize: 12),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -13,18 +13,19 @@ class NotifWidget extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(fontWeight: FontWeight.bold),
       ),
       subtitle: Text(subtitle),
       leading: CircleAvatar(
         backgroundColor: AppColors.appColors,
-        child: CircleAvatar(
+        child: const CircleAvatar(
           backgroundColor: Colors.black,
+          radius: 17,
           child: Icon(
             CupertinoIcons.person,
+            color: Colors.white,
             size: 17,
           ),
-          radius: 17,
         ),
       ),
     );
