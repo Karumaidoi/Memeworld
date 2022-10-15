@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:memeworld/const/app_colors.dart';
 import 'package:memeworld/views/Home/pages/home.dart';
 import 'package:memeworld/views/Home/pages/notifications.dart';
 import 'package:memeworld/views/Home/pages/profile.dart';
 import 'package:memeworld/views/Home/pages/search.dart';
+import './../uploads/upload_content.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({super.key});
@@ -114,7 +116,9 @@ class _MainHomeState extends State<MainHome> {
             ),
             actions: [
               CupertinoActionSheetAction(
-                onPressed: () {},
+                onPressed: () async {
+                  await ImagePicker().pickVideo(source: ImageSource.gallery);
+                },
                 child: Row(
                   children: const [
                     Icon(Icons.gif_box_outlined),
@@ -132,7 +136,9 @@ class _MainHomeState extends State<MainHome> {
                 ),
               ),
               CupertinoActionSheetAction(
-                onPressed: () {},
+                onPressed: () async {
+                  await ImagePicker().pickVideo(source: ImageSource.gallery);
+                },
                 child: Row(
                   children: const [
                     Icon(Icons.video_file),
@@ -150,7 +156,19 @@ class _MainHomeState extends State<MainHome> {
                 ),
               ),
               CupertinoActionSheetAction(
-                onPressed: () {},
+                onPressed: () async {
+                  var tempImage = await ImagePicker()
+                      .pickImage(source: ImageSource.gallery);
+
+                  if (tempImage == null) return;
+
+                  if (tempImage != null) {
+                    Navigator.of(context)
+                        .push(CupertinoPageRoute(builder: (context) {
+                      return const UploadContentPage();
+                    }));
+                  }
+                },
                 child: Row(
                   children: const [
                     Icon(Icons.image),

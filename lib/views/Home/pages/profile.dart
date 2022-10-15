@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:memeworld/const/app_colors.dart';
 import 'package:memeworld/views/Auth/main_auth.dart';
+import 'package:memeworld/views/Home/pages/account/leader_board.dart';
 import 'package:memeworld/views/Home/pages/account/settings.dart';
 import 'package:memeworld/widgets/call_to_action.dart';
+import './../../Profile/followers_page.dart';
+import './../../Profile/memeworld_points.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -44,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ? Column(
               children: [
                 Flexible(
-                  flex: 2,
+                  flex: 1,
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height * .4,
                     width: double.infinity,
@@ -114,26 +117,48 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           const SizedBox(
                             height: 30,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              InfoWidget(
-                                numberCount: '43',
-                                itemAbout: 'Followers',
-                              ),
-                              InfoWidget(
-                                numberCount: '2.1 K',
-                                itemAbout: 'Following',
-                              ),
-                              InfoWidget(
-                                numberCount: '2',
-                                itemAbout: 'Favourites',
-                              ),
-                              InfoWidget(
-                                numberCount: '2',
-                                itemAbout: 'Rank',
-                              )
-                            ],
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 18),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                InfoWidget(
+                                  numberCount: '43',
+                                  itemAbout: 'Followers',
+                                  callback: () {
+                                    Navigator.of(context).push(
+                                        CupertinoPageRoute(builder: (context) {
+                                      return const FollowersPage();
+                                    }));
+                                  },
+                                ),
+                                InfoWidget(
+                                  numberCount: '2.1 K',
+                                  itemAbout: 'Following',
+                                  callback: () {
+                                    Navigator.of(context).push(
+                                        CupertinoPageRoute(builder: (context) {
+                                      return const FollowersPage();
+                                    }));
+                                  },
+                                ),
+                                InfoWidget(
+                                  numberCount: '2',
+                                  itemAbout: 'Favourites',
+                                  callback: () {},
+                                ),
+                                InfoWidget(
+                                  numberCount: '2',
+                                  itemAbout: 'Rank',
+                                  callback: () {
+                                    Navigator.of(context).push(
+                                        CupertinoPageRoute(builder: (context) {
+                                      return const LeaderBoardScreen();
+                                    }));
+                                  },
+                                )
+                              ],
+                            ),
                           ),
                           const SizedBox(
                             height: 20,
@@ -153,10 +178,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(Icons.list_rounded)
                                 ],
                               ),
-                              const Text(
-                                '1,199 points',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                      CupertinoPageRoute(builder: (context) {
+                                    return MemeworldPoints();
+                                  }));
+                                },
+                                child: const Text(
+                                  '1,199 points',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               )
                             ],
@@ -167,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 Flexible(
-                  flex: 3,
+                  flex: 1,
                   child: Padding(
                     padding: const EdgeInsets.all(0.0),
                     child: GridView.count(
@@ -262,10 +295,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
 class InfoWidget extends StatelessWidget {
   final String numberCount;
   final String itemAbout;
+  final VoidCallback callback;
   const InfoWidget({
     Key? key,
     required this.numberCount,
     required this.itemAbout,
+    required this.callback,
   }) : super(key: key);
 
   @override
@@ -274,26 +309,29 @@ class InfoWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 13,
       ),
-      child: Column(
-        children: [
-          Text(
-            numberCount,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
+      child: InkWell(
+        onTap: callback,
+        child: Column(
+          children: [
+            Text(
+              numberCount,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            itemAbout,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
+            const SizedBox(
+              height: 10,
             ),
-          )
-        ],
+            Text(
+              itemAbout,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
