@@ -49,8 +49,15 @@ class DateOfBirth extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 50),
-            const TextFieldWidget(
-                icon: false, title: 'Apr 20, 1998', iconImage: Icon(Icons.abc)),
+            GestureDetector(
+              onTap: () {
+                print('Hello');
+              },
+              child: const TextFieldWidget(
+                  icon: false,
+                  title: 'Apr 20, 1998',
+                  iconImage: Icon(Icons.abc)),
+            ),
             const SizedBox(height: 70),
             CtaButton(
               color: AppColors.appColors,

@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Memeworld',
       theme: ThemeData(
+        // platform: TargetPlatform.,
         fontFamily: 'Nunito',
         useMaterial3: true,
         primaryColor: AppColors.appColors,

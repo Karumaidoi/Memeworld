@@ -13,9 +13,15 @@ class NotifWidget extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: const TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
       ),
-      subtitle: Text(subtitle),
+      subtitle: Text(
+        subtitle,
+        style: const TextStyle(
+          fontWeight: FontWeight.w300,
+          fontSize: 13,
+        ),
+      ),
       leading: CircleAvatar(
         backgroundColor: AppColors.appColors,
         child: const CircleAvatar(

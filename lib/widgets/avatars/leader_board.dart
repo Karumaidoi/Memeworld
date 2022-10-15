@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class LeaderBoardAvatar extends StatelessWidget {
@@ -20,7 +21,7 @@ class LeaderBoardAvatar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Icon(Feather.watch),
+          SvgPicture.asset('assets/crown.svg'),
           const SizedBox(
             height: 15,
           ),

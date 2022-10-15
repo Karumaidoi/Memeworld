@@ -69,8 +69,8 @@ class MemeworldPoints extends StatelessWidget {
                       content: Text(
                         'Coming Soon!',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 16,
                         ),
                       ),
                     );

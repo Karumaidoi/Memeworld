@@ -2,7 +2,7 @@
     package="com.example.memeworld">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="memeworld"
+        android:label="Memeworld"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

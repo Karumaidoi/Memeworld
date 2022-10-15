@@ -14,11 +14,17 @@ class SettingsListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: ListTile(
         onTap: callback,
         leading: icon,
-        title: Text(text),
+        title: Text(
+          text,
+          style: const TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+          ),
+        ),
         selectedColor: AppColors.appColors,
       ),
     );

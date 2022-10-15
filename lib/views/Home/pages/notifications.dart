@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:memeworld/widgets/notif.dart';
@@ -19,7 +18,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
       appBar: AppBar(
         title: const Text(
           'Notification',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 16),
         ),
         centerTitle: false,
         automaticallyImplyLeading: false,
@@ -28,7 +27,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
             onPressed: () {},
             icon: const Icon(
               Feather.settings,
-              size: 22,
+              size: 20,
             ),
           )
         ],
@@ -37,9 +36,10 @@ class _NotificationsPageState extends State<NotificationsPage> {
         physics: const BouncingScrollPhysics(),
         children: const [
           NotifWidget(title: 'Alex Maina', subtitle: 'liked your post'),
-          NotifWidget(title: 'Dennis Kyusya', subtitle: 'liked your post'),
-          NotifWidget(title: 'Joe Doe', subtitle: 'liked your post'),
-          NotifWidget(title: 'Brian Kagwanja', subtitle: 'liked your post'),
+          NotifWidget(title: 'Dennis Kyusya', subtitle: 'Sent you a message'),
+          NotifWidget(title: 'Joe Doe', subtitle: 'Updated profile'),
+          NotifWidget(
+              title: 'Brian Kagwanja', subtitle: 'Started following you'),
         ],
       ),
     );

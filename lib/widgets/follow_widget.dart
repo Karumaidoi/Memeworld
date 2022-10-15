@@ -12,7 +12,7 @@ class FollowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 190,
-      width: 170,
+      width: MediaQuery.of(context).size.width * .43,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(

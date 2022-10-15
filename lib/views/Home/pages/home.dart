@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage>
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        centerTitle: true,
         title: const Text(
           'Memeworld',
           style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
@@ -40,7 +41,7 @@ class _HomePageState extends State<HomePage>
           Flexible(
               flex: 2,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.only(left: 10),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [

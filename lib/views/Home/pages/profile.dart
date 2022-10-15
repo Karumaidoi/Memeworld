@@ -25,7 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         title: const Text(
           'My Profile',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 16),
         ),
         centerTitle: false,
         automaticallyImplyLeading: false,
@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             },
             icon: const Icon(
               Feather.settings,
-              size: 22,
+              size: 20,
             ),
           )
         ],
@@ -69,10 +69,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         fontSize: 19),
                                   ),
                                   Text(
-                                    'justadreamer',
+                                    '@justadreamer',
                                     style: TextStyle(
                                         fontWeight: FontWeight.normal,
-                                        fontSize: 16),
+                                        fontSize: 13),
                                   ),
                                   SizedBox(
                                     height: 15,
@@ -81,7 +81,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     'For the love of memes.',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 16),
+                                        fontSize: 14),
                                   )
                                 ],
                               ),
@@ -108,7 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   'Edit profile',
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.normal,
                                   ),
                                 ),
                               )
@@ -118,9 +118,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: 30,
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 18),
+                            padding: const EdgeInsets.symmetric(horizontal: 0),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 InfoWidget(
                                   numberCount: '43',
@@ -182,7 +182,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 onTap: () {
                                   Navigator.of(context).push(
                                       CupertinoPageRoute(builder: (context) {
-                                    return MemeworldPoints();
+                                    return const MemeworldPoints();
                                   }));
                                 },
                                 child: const Text(
@@ -317,7 +317,7 @@ class InfoWidget extends StatelessWidget {
               numberCount,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 16,
+                fontSize: 14,
               ),
             ),
             const SizedBox(
@@ -326,7 +326,7 @@ class InfoWidget extends StatelessWidget {
             Text(
               itemAbout,
               style: const TextStyle(
-                fontSize: 15,
+                fontSize: 12,
                 fontWeight: FontWeight.w600,
               ),
             )

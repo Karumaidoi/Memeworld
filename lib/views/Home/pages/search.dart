@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:memeworld/views/Home/pages/account/follow_page.dart';
 import 'package:memeworld/views/Home/pages/account/leader_board.dart';
+import 'package:memeworld/views/uploads/meme_categories.dart';
+import 'package:memeworld/views/uploads/meme_trends.dart';
 import 'package:memeworld/widgets/interest_chip.dart';
 import 'package:memeworld/widgets/search_widget.dart';
-
-import '../../../const/app_colors.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -65,60 +64,77 @@ class SearchPage extends StatelessWidget {
                 Text(
                   'Trending',
                   textAlign: TextAlign.left,
+                  style: TextStyle(fontWeight: FontWeight.w600),
                 ),
               ],
             ),
           ),
           const TrendingWidget(),
           const TrendingWidget(),
-          const TrendingWidget(),
-          const TrendingWidget(),
-          const TrendingWidget(),
-          const TrendingWidget(),
-          TextButton(
-              onPressed: () {},
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  children: const [
-                    Text(
+          Row(
+            children: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(CupertinoPageRoute(builder: (context) {
+                      return const MemeTrendsPage();
+                    }));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Text(
                       'See more',
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(.4),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
                     ),
-                  ],
-                ),
-              )),
+                  )),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
                 Row(
                   children: [
-                    const Text('Top Categories'),
+                    Text(
+                      'Top Categories',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black.withOpacity(.7)),
+                    ),
                     const Spacer(),
                     TextButton(
-                        onPressed: () {},
-                        child: const Text(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(CupertinoPageRoute(builder: (context) {
+                            return const MemeCategoriesPage();
+                          }));
+                        },
+                        child: Text(
                           'See more',
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(
+                            color: Colors.black.withOpacity(.4),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                          ),
                         ))
                   ],
                 ),
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    Row(
-                      children: const [
-                        InterestChip(text: 'Dark humour'),
-                        Spacer(),
-                        InterestChip(text: 'Politics'),
-                        Spacer(),
-                        InterestChip(text: 'Science'),
-                      ],
-                    ),
-                    const InterestChip(text: 'Entertainment'),
-                  ],
+                SizedBox(
+                  width: double.infinity,
+                  child: Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: const [
+                      InterestChip(text: 'Dark humour'),
+                      InterestChip(text: 'Politics'),
+                      InterestChip(text: 'Science'),
+                      InterestChip(text: 'Entertainment'),
+                    ],
+                  ),
                 )
               ],
             ),
@@ -136,15 +152,18 @@ class TrendingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ListTile(
-      title: Text(
+    return ListTile(
+      title: const Text(
         '#Riggy Gachagua',
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 14,
         ),
       ),
-      trailing: Text('4K posts'),
+      trailing: Text(
+        '4K posts',
+        style: TextStyle(color: Colors.black.withOpacity(.6)),
+      ),
     );
   }
 }

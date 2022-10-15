@@ -17,7 +17,7 @@ class SettingsPage extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios_new)),
         title: const Text(
           'Settings & Privacy',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 16),
         ),
       ),
       body: ListView(

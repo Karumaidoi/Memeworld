@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:memeworld/const/app_colors.dart';
@@ -53,11 +56,8 @@ class _MainHomeState extends State<MainHome> {
                     index = 0;
                   });
                 },
-                icon: Icon(
-                  CupertinoIcons.home,
-                  size: 25,
-                  color: index == 0 ? AppColors.appColors : Colors.black,
-                )),
+                icon: SvgPicture.asset('assets/Group 2.svg',
+                    color: index == 0 ? AppColors.appColors : Colors.black)),
             IconButton(
                 onPressed: () {
                   setState(() {
@@ -165,7 +165,9 @@ class _MainHomeState extends State<MainHome> {
                   if (tempImage != null) {
                     Navigator.of(context)
                         .push(CupertinoPageRoute(builder: (context) {
-                      return const UploadContentPage();
+                      return UploadContentPage(
+                        image: File(tempImage.path),
+                      );
                     }));
                   }
                 },

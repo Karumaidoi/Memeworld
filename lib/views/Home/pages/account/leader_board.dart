@@ -63,7 +63,7 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen>
         Column(
           children: [
             Flexible(
-              flex: 4,
+              flex: 5,
               child: ListView(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -113,7 +113,7 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen>
         Column(
           children: [
             Flexible(
-              flex: 4,
+              flex: 5,
               child: ListView(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
