@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:memeworld/const/app_colors.dart';
 import 'package:memeworld/views/Home/pages/home.dart';
@@ -64,29 +63,28 @@ class _MainHomeState extends State<MainHome> {
                     index = 1;
                   });
                 },
-                icon: Icon(
-                  Feather.search,
-                  size: 25,
+                icon: SvgPicture.asset(
+                  'assets/Search.svg',
                   color: index == 1 ? AppColors.appColors : Colors.black,
+                  height: 22,
+                  width: 22,
                 )),
             IconButton(
                 onPressed: () {
                   showPopUp(context);
                 },
-                icon: const Icon(
-                  CupertinoIcons.add_circled,
-                  size: 35,
-                )),
+                icon: SvgPicture.asset('assets/Add.svg')),
             IconButton(
                 onPressed: () {
                   setState(() {
                     index = 2;
                   });
                 },
-                icon: Icon(
-                  CupertinoIcons.bell,
-                  size: 25,
+                icon: SvgPicture.asset(
+                  'assets/Notifications2.svg',
                   color: index == 2 ? AppColors.appColors : Colors.black,
+                  height: 22,
+                  width: 22,
                 )),
             IconButton(
                 onPressed: () {
@@ -94,10 +92,11 @@ class _MainHomeState extends State<MainHome> {
                     index = 3;
                   });
                 },
-                icon: Icon(
-                  CupertinoIcons.person,
-                  size: 25,
+                icon: SvgPicture.asset(
+                  'assets/Profile2.svg',
                   color: index == 3 ? AppColors.appColors : Colors.black,
+                  height: 22,
+                  width: 22,
                 ))
           ],
         ),
@@ -112,7 +111,10 @@ class _MainHomeState extends State<MainHome> {
           return CupertinoActionSheet(
             title: const Text(
               'Post to Memeworld',
-              style: TextStyle(),
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Nunito'),
             ),
             actions: [
               CupertinoActionSheetAction(
@@ -198,6 +200,7 @@ class _MainHomeState extends State<MainHome> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
+                    fontFamily: 'Nunito',
                   ),
                 )),
           );

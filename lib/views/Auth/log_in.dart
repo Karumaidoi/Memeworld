@@ -74,7 +74,7 @@ class LogInScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(context,
                             CupertinoPageRoute(builder: (context) {
-                          return ForgotPassword();
+                          return const ForgotPassword();
                         }));
                       },
                       child: Text(

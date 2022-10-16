@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+  <g id="Layer_2" data-name="Layer 2" opacity="0.5">
+    <g id="person-add">
+      <rect id="Rectangle_521" data-name="Rectangle 521" width="23" height="23" opacity="0"/>
+      <path id="Path_411" data-name="Path 411" d="M20.053,5.833h-.947V4.889a.947.947,0,0,0-1.895,0v.944h-.947a.944.944,0,1,0,0,1.889h.947v.944a.947.947,0,0,0,1.895,0V7.722h.947a.944.944,0,1,0,0-1.889ZM9.632,10.556A3.778,3.778,0,1,0,5.842,6.778,3.784,3.784,0,0,0,9.632,10.556ZM15.316,20a.946.946,0,0,0,.947-.944A6.632,6.632,0,0,0,3,19.056.946.946,0,0,0,3.947,20" transform="translate(0)"/>
+    </g>
+  </g>
+</svg>

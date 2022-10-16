@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MemeworldPoints extends StatelessWidget {
   const MemeworldPoints({super.key});
@@ -15,7 +16,15 @@ class MemeworldPoints extends StatelessWidget {
           style: TextStyle(fontSize: 18),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.leaderboard))
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset(
+              'assets/LeaderBoard.svg',
+              color: Colors.black.withOpacity(1),
+              height: 22,
+              width: 22,
+            ),
+          )
         ],
       ),
       body: Column(

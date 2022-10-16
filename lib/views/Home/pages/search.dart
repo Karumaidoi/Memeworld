@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:memeworld/views/Home/pages/account/follow_page.dart';
 import 'package:memeworld/views/Home/pages/account/leader_board.dart';
 import 'package:memeworld/views/uploads/meme_categories.dart';
@@ -21,7 +22,11 @@ class SearchPage extends StatelessWidget {
                 return const FollowUserPage();
               }));
             },
-            icon: const Icon(Icons.person_add_alt)),
+            icon: SvgPicture.asset(
+              'assets/AddUser.svg',
+              height: 22,
+              width: 22,
+            )),
         title: const SearchWidget(),
         actions: [
           IconButton(
@@ -31,7 +36,11 @@ class SearchPage extends StatelessWidget {
                   return const LeaderBoardScreen();
                 }));
               },
-              icon: const Icon(Icons.leaderboard_outlined))
+              icon: SvgPicture.asset(
+                'assets/LeaderBoard.svg',
+                height: 22,
+                width: 22,
+              ))
         ],
       ),
       body: ListView(

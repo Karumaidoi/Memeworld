@@ -22,16 +22,13 @@ class NotifWidget extends StatelessWidget {
           fontSize: 13,
         ),
       ),
-      leading: CircleAvatar(
-        backgroundColor: AppColors.appColors,
-        child: const CircleAvatar(
-          backgroundColor: Colors.black,
-          radius: 17,
-          child: Icon(
-            CupertinoIcons.person,
-            color: Colors.white,
-            size: 17,
-          ),
+      leading: const CircleAvatar(
+        backgroundColor: Colors.black,
+        radius: 17,
+        child: Icon(
+          CupertinoIcons.person,
+          color: Colors.white,
+          size: 17,
         ),
       ),
     );

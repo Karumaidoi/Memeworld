@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:memeworld/const/app_colors.dart';
 import 'package:memeworld/views/Auth/main_auth.dart';
@@ -85,11 +86,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   )
                                 ],
                               ),
-                              Icon(
-                                CupertinoIcons.person,
-                                size: 75,
+                              SvgPicture.asset(
+                                'assets/Profile2.svg',
                                 color: Colors.black.withOpacity(.2),
-                              )
+                                height: 52,
+                                width: 52,
+                              ),
                             ],
                           ),
                           const SizedBox(
@@ -253,11 +255,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 100),
-                const Icon(
-                  CupertinoIcons.person,
-                  size: 150,
+                SvgPicture.asset(
+                  'assets/Profile2.svg',
+                  color: Colors.black.withOpacity(.2),
+                  height: 92,
+                  width: 92,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 const Text('Log in to my account'),
                 const SizedBox(height: 100),
                 CtaButton(

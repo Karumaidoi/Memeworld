@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage>
       body: Column(
         children: [
           Flexible(
-              flex: 2,
+              flex: 3,
               child: Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: ListView(
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage>
                 ),
               )),
           Flexible(
-            flex: 1,
+            flex: 2,
             child: Column(
               children: [
                 TabBar(
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           Flexible(
-              flex: 8,
+              flex: 15,
               child: TabBarView(controller: _controller, children: [
                 Column(
                   children: [

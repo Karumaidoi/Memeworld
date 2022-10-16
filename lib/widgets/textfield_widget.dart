@@ -25,6 +25,7 @@ class TextFieldWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextFormField(
+        textAlign: TextAlign.center,
         obscureText: icon,
         // obsecureText: icon,
         decoration: InputDecoration(
@@ -37,5 +38,3 @@ class TextFieldWidget extends StatelessWidget {
     );
   }
 }
-
-
