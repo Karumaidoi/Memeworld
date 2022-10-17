@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:memeworld/const/app_colors.dart';
 import 'package:memeworld/views/onboarding/onboarding_screen.dart';
+import 'package:memeworld/views/splash_screen_v2.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -15,7 +16,7 @@ class SplashScreen extends StatelessWidget {
       Navigator.pushReplacement(
           context,
           CupertinoPageRoute(
-              builder: (BuildContext context) => const OnBoarding()));
+              builder: (BuildContext context) => const IntroScreen()));
     });
     return Scaffold(
       backgroundColor: AppColors.appColors,

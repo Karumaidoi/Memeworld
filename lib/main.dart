@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:memeworld/const/app_colors.dart';
+import 'package:memeworld/views/splash_screen_v2.dart';
 
 import 'views/splash_screen.dart';
 
