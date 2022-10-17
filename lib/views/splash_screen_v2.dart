@@ -131,7 +131,7 @@ class _IntroScreenState extends State<IntroScreen> {
                             height: 5,
                           ),
                           Transform.rotate(
-                            angle: math.pi / 2,
+                            angle: 300,
                             child: Positioned(
                                 right: 10,
                                 top: 42,
@@ -139,7 +139,7 @@ class _IntroScreenState extends State<IntroScreen> {
                                   children: List.generate(3, (indexDots) {
                                     return Container(
                                       width: 8,
-                                      height: index != indexDots ? 25 : 8,
+                                      height: index == indexDots ? 25 : 8,
                                       margin: const EdgeInsets.only(top: 10),
                                       decoration: BoxDecoration(
                                           color: AppColors.appColors,
