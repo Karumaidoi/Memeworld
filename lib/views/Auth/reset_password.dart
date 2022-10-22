@@ -29,7 +29,7 @@ class ResetPassword extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 55),
               child: Text(
                 'Strong passwords must include numbers, letters, and special characters.',
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(height: 30),

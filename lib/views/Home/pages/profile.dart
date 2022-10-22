@@ -6,6 +6,7 @@ import 'package:memeworld/const/app_colors.dart';
 import 'package:memeworld/views/Auth/main_auth.dart';
 import 'package:memeworld/views/Home/pages/account/leader_board.dart';
 import 'package:memeworld/views/Home/pages/account/settings.dart';
+import 'package:memeworld/views/user/user_favourites.dart';
 import 'package:memeworld/widgets/call_to_action.dart';
 import './../../Profile/followers_page.dart';
 import './../../Profile/memeworld_points.dart';
@@ -147,7 +148,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 InfoWidget(
                                   numberCount: '2',
                                   itemAbout: 'Favourites',
-                                  callback: () {},
+                                  callback: () {
+                                    Navigator.of(context)
+                                        .push(CupertinoPageRoute(builder: (_) {
+                                      return const FavouritesPage();
+                                    }));
+                                  },
                                 ),
                                 InfoWidget(
                                   numberCount: '2',
