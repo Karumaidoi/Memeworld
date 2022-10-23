@@ -182,6 +182,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   'GET STARTED',
                   style: TextStyle(
                     color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),

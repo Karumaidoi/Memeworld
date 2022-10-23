@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:memeworld/views/settings/account_page.dart';
 import 'package:memeworld/views/settings/contact_us.dart';
+import 'package:memeworld/views/settings/content_page.dart';
+import 'package:memeworld/views/settings/data_usage.dart';
 import 'package:memeworld/views/settings/faqs_page.dart';
+import 'package:memeworld/views/settings/notifications_page.dart';
+import 'package:memeworld/views/settings/refer_page.dart';
 import 'package:memeworld/views/settings/terms_page.dart';
 
 import '../../../../widgets/SettingListTileWidget.dart';
@@ -28,7 +33,11 @@ class SettingsPage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
+                return const ReferPage();
+              }));
+            },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18),
               child: Container(
@@ -70,22 +79,38 @@ class SettingsPage extends StatelessWidget {
           SettingsListTile(
             text: 'Account',
             icon: const Icon(Icons.account_balance),
-            callback: () {},
+            callback: () {
+              Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
+                return const AccountPage();
+              }));
+            },
           ),
           SettingsListTile(
             text: 'Notifications',
             icon: const Icon(Icons.notifications),
-            callback: () {},
+            callback: () {
+              Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
+                return const NotificationsPage();
+              }));
+            },
           ),
           SettingsListTile(
             text: 'Content preference',
             icon: const Icon(Icons.book),
-            callback: () {},
+            callback: () {
+              Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
+                return const ContentPreference();
+              }));
+            },
           ),
           SettingsListTile(
             text: 'Data usage',
             icon: const Icon(Icons.security),
-            callback: () {},
+            callback: () {
+              Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
+                return const DataUsagePage();
+              }));
+            },
           ),
           SettingsListTile(
             text: 'Terms & privacy',
