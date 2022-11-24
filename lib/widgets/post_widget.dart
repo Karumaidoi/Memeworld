@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:memeworld/views/Home/pages/account/comment_page.dart';
+import 'package:memeworld/views/Profile/likes_page.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'action_widget.dart';
 
-class PostWidget extends StatelessWidget {
+class PostWidget extends StatefulWidget {
   final String userName;
   final String timePosted;
   final String imageContent;
@@ -20,6 +21,73 @@ class PostWidget extends StatelessWidget {
       required this.likes,
       required this.comments,
       required this.shareCount});
+
+  @override
+  State<PostWidget> createState() => _PostWidgetState();
+}
+
+class _PostWidgetState extends State<PostWidget> {
+  showOverlay(BuildContext context, String image) async {
+    OverlayState? overlayState = Overlay.of(context);
+    OverlayEntry? overlayEntry;
+    overlayEntry = OverlayEntry(
+      builder: (context) => Column(
+        children: [
+          GestureDetector(
+            onTap: () {
+              // overlayEntry!.remove();
+            },
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              color: const Color.fromARGB(255, 0, 0, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 45),
+                    child: Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              overlayEntry!.remove();
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.white,
+                            )),
+                        const Spacer(),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              CupertinoIcons.download_circle,
+                              color: Colors.white,
+                            )),
+                      ],
+                    ),
+                  ),
+                  Stack(children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      width: MediaQuery.of(context).size.height * 0.4,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                            image: AssetImage(image), fit: BoxFit.cover),
+                      ),
+                    ),
+                  ]),
+                  const SizedBox(),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
+    overlayState!.insert(overlayEntry);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +115,7 @@ class PostWidget extends StatelessWidget {
                 backgroundImage: AssetImage('assets/user.jpeg'),
               ),
               title: Text(
-                userName,
+                widget.userName,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 13,
@@ -58,7 +126,7 @@ class PostWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(timePosted),
+                    Text(widget.timePosted),
                     const SizedBox(
                       width: 10,
                     ),
@@ -71,17 +139,22 @@ class PostWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Container(
-                width: double.infinity,
-                height: 250,
-                decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(.1),
-                    image: DecorationImage(
-                      image: AssetImage(imageContent),
-                      fit: BoxFit.cover,
-                    )),
+            GestureDetector(
+              onTap: () {
+                showOverlay(context, widget.imageContent);
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Container(
+                  width: double.infinity,
+                  height: 250,
+                  decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(.1),
+                      image: DecorationImage(
+                        image: AssetImage(widget.imageContent),
+                        fit: BoxFit.cover,
+                      )),
+                ),
               ),
             ),
             const SizedBox(
@@ -95,8 +168,13 @@ class PostWidget extends StatelessWidget {
                     children: [
                       ActionWidget(
                         icon: const Icon(Icons.favorite_border_outlined),
-                        text: likes,
-                        callback: () {},
+                        text: widget.likes,
+                        callback: () {
+                          Navigator.of(context)
+                              .push(CupertinoPageRoute(builder: (context) {
+                            return const LikesPage();
+                          }));
+                        },
                       ),
                       const SizedBox(
                         width: 10,
@@ -106,7 +184,7 @@ class PostWidget extends StatelessWidget {
                           CupertinoIcons.chat_bubble,
                           size: 22,
                         ),
-                        text: comments,
+                        text: widget.comments,
                         callback: () {
                           Navigator.of(context)
                               .push(CupertinoPageRoute(builder: (context) {
@@ -118,7 +196,7 @@ class PostWidget extends StatelessWidget {
                   ),
                   const Spacer(),
                   ActionWidget(
-                    text: shareCount,
+                    text: widget.shareCount,
                     icon: const Icon(
                       CupertinoIcons.share_up,
                       size: 22,

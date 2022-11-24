@@ -53,14 +53,11 @@ class FollowUserWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 7),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: AppColors.appColors,
-          child: CircleAvatar(
-            backgroundColor: AppColors.blackColor,
-            radius: 18,
-            child: const Icon(
-              Icons.person,
-              color: Colors.white,
-            ),
+          backgroundColor: AppColors.blackColor,
+          radius: 18,
+          child: const Icon(
+            Icons.person,
+            color: Colors.white,
           ),
         ),
         title: const Text(

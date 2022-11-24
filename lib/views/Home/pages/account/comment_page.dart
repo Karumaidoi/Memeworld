@@ -6,6 +6,7 @@ class CommentsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
@@ -16,16 +17,14 @@ class CommentsPage extends StatelessWidget {
         title: const Text(
           'Comments',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 16,
           ),
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const SizedBox(
-            height: 100,
-          ),
+          const SizedBox(),
           Column(
             children: [
               const Icon(
@@ -51,43 +50,43 @@ class CommentsPage extends StatelessWidget {
               ),
             ],
           ),
-        ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 50),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              height: 40,
-              width: MediaQuery.of(context).size.width * .75,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.black.withOpacity(0.3)),
-              ),
-              child: TextFormField(
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Write a comment....',
-                  hintStyle: const TextStyle(color: Colors.black),
-                  prefixIcon: const Icon(Icons.mood),
-                  suffixIcon: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Icon(Icons.gif),
-                      SizedBox(width: 5),
-                      Icon(Icons.collections),
-                      SizedBox(width: 10),
-                    ],
+          Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  height: 40,
+                  width: MediaQuery.of(context).size.width * .75,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.black.withOpacity(0.3)),
+                  ),
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Write a comment....',
+                      hintStyle: const TextStyle(color: Colors.black),
+                      prefixIcon: const Icon(Icons.mood),
+                      suffixIcon: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: const [
+                          Icon(Icons.gif),
+                          SizedBox(width: 5),
+                          Icon(Icons.collections),
+                          SizedBox(width: 10),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.send))
+              ],
             ),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.send))
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
